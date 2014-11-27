@@ -1,10 +1,12 @@
 package charttraversal;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InputHandler {
 	private String file;
 	private String employee1;
 	private String employee2;
-	private Organisation company;
 
 	public String getFile() {
 		return file;
@@ -34,7 +36,6 @@ public class InputHandler {
 		this.file = filename;
 		this.employee1 = emp1;
 		this.employee2 = emp2;
-		constructOrganisation(this.file);
 	}
 
 
@@ -47,12 +48,17 @@ public class InputHandler {
 		String emp2 = args[2];
 		
 		InputHandler input = new InputHandler(filename, emp1, emp2);
+		input.constructOrganisation(input.file);
 		
 	}
 	
 	private void constructOrganisation(String filename) {
+		List<EmployeeDetail> employees = FileReader.read(file);
 		
-		this.company = new Organisation()
+		for (int i=0; i<employees.size(); i++) {
+			System.out.println(employees.get(i).getId() + " " + employees.get(i).getName() + " " + employees.get(i).getBoss());
+		}
+		
 	}
 	
 	
