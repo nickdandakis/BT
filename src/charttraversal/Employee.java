@@ -5,7 +5,9 @@ import java.util.ArrayList;
 public class Employee {
 	private Employee manager;
 	private String name;
+	private int id;
 	private ArrayList<Employee> subordinates;
+	private int bossID;
 	
 	public Employee getManager() {
 		return manager;
@@ -19,17 +21,30 @@ public class Employee {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public ArrayList<Employee> getSubordinates() {
 		return subordinates;
 	}
-	public void setSubordinates(ArrayList<Employee> subordinates) {
-		this.subordinates = subordinates;
+	public void addSubordinate(Employee subordinate) {
+		this.subordinates.add(subordinate);
+	}
+	public int getBossID() {
+		return bossID;
+	}
+	public void setBossID(int bossID) {
+		this.bossID = bossID;
 	}
 	
-	public Employee(Employee manager, String name, ArrayList<Employee> subordinates) {
-		this.manager = manager;
+	
+	public Employee(String name, int id, int bossID) {
 		this.name = name;
-		this.subordinates = subordinates;
+		this.id = id;
+		this.bossID = bossID;
 	}
 	
 	
