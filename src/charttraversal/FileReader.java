@@ -1,12 +1,11 @@
 package charttraversal;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class FileReader {
-	public static List<EmployeeDetail> read (String filename) {
+	public static ArrayList<EmployeeDetail> read (String filename) {
 		String line = "";
-		List<EmployeeDetail> empList = new ArrayList<>();
+		ArrayList<EmployeeDetail> empList = new ArrayList<>();
 		
 		
 		try {

@@ -53,10 +53,14 @@ public class InputHandler {
 	}
 	
 	private void constructOrganisation(String filename) {
-		List<EmployeeDetail> employees = FileReader.read(file);
+		/*
+		 * The file reader makes the assumption that the input file is in the working directory for the program.
+		 */
+		ArrayList<EmployeeDetail> employeeDetails = FileReader.read(file);
+		ArrayList<Employee> employees; 
 		
-		for (int i=0; i<employees.size(); i++) {
-			System.out.println(employees.get(i).getId() + " " + employees.get(i).getName() + " " + employees.get(i).getBoss());
+		for (int i=0; i<employeeDetails.size(); i++) {
+			System.out.println(employeeDetails.get(i).getId() + " " + employeeDetails.get(i).getName() + " " + employeeDetails.get(i).getBoss());
 		}
 		
 	}
