@@ -20,7 +20,6 @@ public class BuildHierarchy {
 			 */
 			if (emp.getBossID() > -1) {
 				for (Employee boss : company) {
-					System.out.println(boss.getId() + emp.getBossID());
 					if (boss.getId() == emp.getBossID()) {
 						emp.setManager(boss);
 						boss.addSubordinate(emp);

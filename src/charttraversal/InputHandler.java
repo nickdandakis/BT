@@ -91,13 +91,8 @@ public class InputHandler {
 			employees.add(newEmployee);
 		}
 		
-		for (Employee emp : employees) {
-			System.out.println(emp.getId() + " " + emp.getName() + " " + emp.getBossID() + " party");
-		}
-		
 		BuildHierarchy hierarchy = new BuildHierarchy();
 		ArrayList<Employee> company = hierarchy.build(employees);
-		System.out.println(company.get(2).getName());
 				
 		return company;
 		

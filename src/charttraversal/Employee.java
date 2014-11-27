@@ -45,6 +45,7 @@ public class Employee {
 		this.name = name;
 		this.id = id;
 		this.bossID = bossID;
+		this.subordinates = new ArrayList<Employee>();
 	}
 	
 	

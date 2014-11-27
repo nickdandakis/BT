@@ -20,7 +20,6 @@ public class FileReader {
 			 * isn't necessary.
 			 */
 			String headings = reader.readLine();
-			System.out.println(headings + " are headings");
 			
 			while ((line = reader.readLine()) != null) {
 				/*
