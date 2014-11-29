@@ -1,33 +1,29 @@
 package charttraversal;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BuildHierarchy {
-	public ArrayList<Employee> build (ArrayList<Employee> company) {		
+	public HashMap<Integer, Employee> build (HashMap<Integer, Employee> company) {		
 		/*
 		 * Now, for each of the employees, add bosses and subordinates.
 		 */
 		
-		for (Employee emp : company) {
+		for (Map.Entry<Integer, Employee> entry : company.entrySet()) {
 			/*
 			 * For each employee in the company, look at the ID of their boss.
 			 * If they are not at the top of the company (i.e. have a boss)
-			 * then search the company for their boss.
-			 * When you find their boss, add the boss object to the employee object
-			 * so the employee now has a linked boss.
-			 * At the same time, add the employee as a subordinate to the boss
-			 * so we don't need to go round again looking for subordinates.
+			 * then set their boss as the employee in the hashmap with their boss's ID
+			 * (i.e. ...their boss, because the employees are stored in the hashmap with their ID as key).
+			 * Similarly, get their boss from the hashmap and add the employee as a subordinate.
 			 */
-			if (emp.getBossID() > -1) {
-				for (Employee boss : company) {
-					if (boss.getId() == emp.getBossID()) {
-						emp.setManager(boss);
-						boss.addSubordinate(emp);
-					}
-				}
-			}
 			
+			Employee emp = entry.getValue();
+			emp.setManager(company.get(emp.getBossID()));
+			
+			company.get(emp.getBossID()).addSubordinate(company.get(emp.getId()));
 		}
+		
 			
 		/*
 		 * Now the company should consist of a bunch of employees, 

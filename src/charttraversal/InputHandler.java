@@ -1,7 +1,10 @@
 package charttraversal;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class InputHandler {
 	private String file;
@@ -58,27 +61,27 @@ public class InputHandler {
 		String emp2 = args[2];
 		
 		InputHandler input = new InputHandler(filename, emp1, emp2);
-		System.out.println(input.shortestPath);
+		//System.out.println(input.shortestPath);
 		
 	}
 	
 	private void run(InputHandler input) {
-		ArrayList<Employee> company = input.constructOrganisation(input.file);
-		PathCalculator pCalc = new PathCalculator();
-		shortestPath = pCalc.calculate(company, input.employee1, input.employee2);
+		HashMap<Integer, Employee> company = input.constructOrganisation(input.file);
+		//PathCalculator pCalc = new PathCalculator();
+		//shortestPath = pCalc.calculate(company, input.employee1, input.employee2);
 	}
 	
-	private ArrayList<Employee> constructOrganisation(String filename) {
+	private HashMap<Integer, Employee> constructOrganisation(String filename) {
 		/*
 		 * The file reader makes the assumption that the input file is in the working directory for the program.
 		 */
-		ArrayList<EmployeeDetail> employeeDetails = FileReader.read(file);
-		ArrayList<Employee> employees = new ArrayList<>();
+		HashMap<Integer, Employee> employees = FileReader.read(file);
+		//ArrayList<Employee> employees = new ArrayList<>();
 		
 		/*
 		 * For now, just add all of the employee to the list with their names and ID's.
 		 */
-		for (EmployeeDetail empDet : employeeDetails) {
+		/*for (EmployeeDetail empDet : employeeDetails) {
 			//Start off with a null employee
 			Employee newEmployee = new Employee(null, 0, 0);
 			
@@ -89,10 +92,10 @@ public class InputHandler {
 			
 			//Add the employee to the company (list)
 			employees.add(newEmployee);
-		}
+		}*/
 		
-		BuildHierarchy hierarchy = new BuildHierarchy();
-		ArrayList<Employee> company = hierarchy.build(employees);
+		BuildHierarchy hierarchy = new BuildHierarchy();		
+		HashMap<Integer, Employee> company = hierarchy.build(employees);
 				
 		return company;
 		

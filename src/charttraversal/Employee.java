@@ -1,12 +1,12 @@
 package charttraversal;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Employee {
 	private Employee manager;
 	private String name;
 	private int id;
-	private ArrayList<Employee> subordinates;
+	private HashMap<Integer, Employee> subordinates;
 	private int bossID;
 	
 	public Employee getManager() {
@@ -27,11 +27,11 @@ public class Employee {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public ArrayList<Employee> getSubordinates() {
+	public HashMap<Integer, Employee> getSubordinates() {
 		return subordinates;
 	}
 	public void addSubordinate(Employee subordinate) {
-		this.subordinates.add(subordinate);
+		this.subordinates.put(subordinate.getId(), subordinate);
 	}
 	public int getBossID() {
 		return bossID;
@@ -45,7 +45,7 @@ public class Employee {
 		this.name = name;
 		this.id = id;
 		this.bossID = bossID;
-		this.subordinates = new ArrayList<Employee>();
+		this.subordinates = new HashMap<Integer, Employee>();
 	}
 	
 	
