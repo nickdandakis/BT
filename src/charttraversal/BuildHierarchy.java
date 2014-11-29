@@ -4,11 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BuildHierarchy {
+	/*
+	 * Build a hashmap of employees with managers and subordinates (using the original hasmap of employees).
+	 */
 	public HashMap<Integer, Employee> build (HashMap<Integer, Employee> company) {		
 		/*
 		 * Now, for each of the employees, add bosses and subordinates.
 		 */
 		
+		/*
+		 * IMPORTANT NOTE: This doesn't deal with gaps in the hierarchy.
+		 */
 		for (Map.Entry<Integer, Employee> entry : company.entrySet()) {
 			/*
 			 * For each employee in the company, look at the ID of their boss.

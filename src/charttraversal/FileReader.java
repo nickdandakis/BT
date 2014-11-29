@@ -3,6 +3,9 @@ import java.io.*;
 import java.util.HashMap;
 
 public class FileReader {
+	/*
+	 * Read the input file, return a hasmap of employees.
+	 */
 	public static HashMap<Integer, Employee> read (String filename) {
 		String line = "";
 		HashMap<Integer, Employee> employees = new HashMap<Integer, Employee>();

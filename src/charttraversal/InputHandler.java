@@ -1,10 +1,7 @@
 package charttraversal;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 
 public class InputHandler {
 	private String file;
@@ -61,14 +58,14 @@ public class InputHandler {
 		String emp2 = args[2];
 		
 		InputHandler input = new InputHandler(filename, emp1, emp2);
-		//System.out.println(input.shortestPath);
+		System.out.println(input.shortestPath);
 		
 	}
 	
 	private void run(InputHandler input) {
 		HashMap<Integer, Employee> company = input.constructOrganisation(input.file);
-		//PathCalculator pCalc = new PathCalculator();
-		//shortestPath = pCalc.calculate(company, input.employee1, input.employee2);
+		PathCalculator pCalc = new PathCalculator();
+		this.shortestPath = pCalc.calculate(company, input.employee1, input.employee2);
 	}
 	
 	private HashMap<Integer, Employee> constructOrganisation(String filename) {
