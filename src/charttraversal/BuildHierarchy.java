@@ -12,9 +12,6 @@ public class BuildHierarchy {
 		 * Now, for each of the employees, add bosses and subordinates.
 		 */
 		
-		/*
-		 * IMPORTANT NOTE: This doesn't deal with gaps in the hierarchy.
-		 */
 		for (Map.Entry<Integer, Employee> entry : company.entrySet()) {
 			/*
 			 * For each employee in the company, look at the ID of their boss.

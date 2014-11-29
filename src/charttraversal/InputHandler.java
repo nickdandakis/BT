@@ -54,9 +54,11 @@ public class InputHandler {
 
 
 	public static void main(String[] args) {
-		// NOTE: This makes the assumption that 3 arguments will be passed in 
-		// when invoking the program. It also makes the assumption that 
-		// the arguments will be of format [filename, employee, employee]
+		/*
+		 *  NOTE: This makes the assumption that 3 arguments will be passed in 
+		 *  when invoking the program. It also makes the assumption that 
+		 *  the arguments will be of format [filename, employee, employee]
+		 */
 		String filename = args[0];
 		String emp1 = args[1];
 		String emp2 = args[2];
@@ -77,40 +79,17 @@ public class InputHandler {
 		 * The file reader makes the assumption that the input file is in the working directory for the program.
 		 */
 		HashMap<Integer, Employee> employees = FileReader.read(file);
-		//ArrayList<Employee> employees = new ArrayList<>();
 		
 		/*
-		 * For now, just add all of the employee to the list with their names and ID's.
+		 * Call the hierarchy builder to add employees managers and subordinates in
+		 * (hence creating the company structure)
 		 */
-		/*for (EmployeeDetail empDet : employeeDetails) {
-			//Start off with a null employee
-			Employee newEmployee = new Employee(null, 0, 0);
-			
-			//Give the employee their independent qualities
-			newEmployee.setId(empDet.getId());
-			newEmployee.setName(empDet.getName());
-			newEmployee.setBossID(empDet.getBoss());
-			
-			//Add the employee to the company (list)
-			employees.add(newEmployee);
-		}*/
-		
 		BuildHierarchy hierarchy = new BuildHierarchy();		
 		HashMap<Integer, Employee> company = hierarchy.build(employees);
 				
 		return company;
 		
 		
-//		for (int i=0; i<employeeDetails.size(); i++) {
-//			System.out.println(employeeDetails.get(i).getId() + " " + employeeDetails.get(i).getName() + " " + employeeDetails.get(i).getBoss());
-//		}
-		
 	}
-	
-	
-	//Need to read the standard input args correctly				-- CHECK
-	//Need to find and read file correctly 							-- CHECK
-	//Need to store the input from the file appropriately			-- CHECK
-	//Need to find the shortest route from one employee to another
 
 }

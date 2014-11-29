@@ -109,6 +109,10 @@ public class PathCalculator {
 	
 	
 	
+	/*
+	 * Checks if the employees exist in the company. Returns array of ids 
+	 * if they are, and error message if they aren't. 
+	 */
 	public String[] checker (HashMap<Integer, Employee> company, String emp1, String emp2) {
 		/*
 		 * Integer array corresponding to IDs of employees if they have been found.
@@ -149,6 +153,8 @@ public class PathCalculator {
 		
 		return check;
 	}
+	
+	
 	
 	
 	/*
