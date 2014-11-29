@@ -19,9 +19,10 @@ public class BuildHierarchy {
 			 */
 			
 			Employee emp = entry.getValue();
-			emp.setManager(company.get(emp.getBossID()));
-			
-			company.get(emp.getBossID()).addSubordinate(company.get(emp.getId()));
+			if (emp.getBossID() > -1) {
+				emp.setManager(company.get(emp.getBossID()));
+				company.get(emp.getBossID()).addSubordinate(company.get(emp.getId()));
+			}
 		}
 		
 			
