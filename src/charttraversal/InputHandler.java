@@ -43,8 +43,12 @@ public class InputHandler {
 
 	public InputHandler(String filename, String emp1, String emp2) {
 		this.file = filename;
-		this.employee1 = emp1;
-		this.employee2 = emp2;
+		/*
+		 * Handle funny spacing in the input
+		 * (more than one space is replaced by one space).
+		 */
+		this.employee1 = emp1.trim().replaceAll("( )+", " ");
+		this.employee2 = emp2.trim().replaceAll("( )+", " ");
 		run(this);
 	}
 

@@ -26,8 +26,19 @@ public class BuildHierarchy {
 			
 			Employee emp = entry.getValue();
 			if (emp.getBossID() > -1) {
-				emp.setManager(company.get(emp.getBossID()));
-				company.get(emp.getBossID()).addSubordinate(company.get(emp.getId()));
+				/*
+				 * If the person's boss has left the company, 
+				 * then start a new tree. 
+				 * Note, everyone in this new tree will not be connected to 
+				 * anyone in the original tree.
+				 */
+				try {
+					company.get(emp.getBossID()).addSubordinate(company.get(emp.getId()));
+					emp.setManager(company.get(emp.getBossID()));
+				} catch (NullPointerException e){
+					emp.setBossID(-1);
+				}
+				
 			}
 		}
 		

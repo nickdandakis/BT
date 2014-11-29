@@ -1,0 +1,12 @@
+  | Employee ID | Name            | Manager ID |
+  | 16          | Batman          | 6          |
+  | 1           | Dangermouse     |            |
+  | 6           | Black Widow     | 2          |
+  | 2           | Gonzo the Great | 1          |
+  | 3           | Invisible Woman | 1          |
+
+  | 26          | Hit Girl        | 3          |
+  | 12          | Hit Girl        | 3          |
+  | 15          | Super Ted       | 3          |
+
+  | 17          | Catwoman        | 6          |

@@ -73,9 +73,9 @@ public class PathCalculator {
 		 * then print out the shortest path between them.
 		 */
 		if (connected) {
-			shortestPath = printFormatter(shortestPath, emp1UpwardIDs, emp2UpwardIDs, commonBoss, company);
-			
-			
+			shortestPath = printFormatter(shortestPath, emp1UpwardIDs, emp2UpwardIDs, commonBoss, company);			
+		} else {
+			shortestPath = "It appears " + employee1.getName() + " and " + employee2.getName() + " are not connected in the company!";
 		}
 		
 		return shortestPath;
@@ -134,13 +134,13 @@ public class PathCalculator {
 		
 		if ((check[1] == null) && (check[2] == null)) {
 			//Neither employee was found.
-			check[0] = "Sorry, neither " + emp1 + " nor " + emp2 + " could be found in the company.";
+			check[0] = "Sorry, neither " + emp1 + " nor " + emp2 + " could not be found in the company.";
 		} else if (check[1] == null) {
 			//Employee 1 only was not found.
-			check[0] = "Sorry, " + emp1 + " could be found in the company.";
+			check[0] = "Sorry, " + emp1 + " could not be found in the company.";
 		} else if (check[2] == null) {
 			//Employee 2 only was not found.
-			check[0] = "Sorry, " + emp2 + " could be found in the company.";
+			check[0] = "Sorry, " + emp2 + " could not be found in the company.";
 		} else {
 			//Both employees were found :-)
 			check[0] = null;
