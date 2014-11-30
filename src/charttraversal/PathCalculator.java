@@ -37,8 +37,6 @@ public class PathCalculator {
 		
 		employee1 = company.get(Integer.parseInt(check[1]));
 		employee2 = company.get(Integer.parseInt(check[2]));
-		System.out.println(employee1.getName());
-		System.out.println(employee2.getName());
 		emp1UpwardIDs = getUpwardIDs(employee1);
 		emp2UpwardIDs = getUpwardIDs(employee2);
 		

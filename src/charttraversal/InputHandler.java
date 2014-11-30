@@ -55,16 +55,20 @@ public class InputHandler {
 
 	public static void main(String[] args) {
 		/*
-		 *  NOTE: This makes the assumption that 3 arguments will be passed in 
-		 *  when invoking the program. It also makes the assumption that 
-		 *  the arguments will be of format [filename, employee, employee]
+		 *  NOTE: This makes the assumption that the arguments will be of format:
+		 *  		filename "employee" "employee"
 		 */
-		String filename = args[0];
-		String emp1 = args[1];
-		String emp2 = args[2];
+		try {
+			String filename = args[0];
+			String emp1 = args[1];
+			String emp2 = args[2];
+			
+			InputHandler input = new InputHandler(filename, emp1, emp2);
+			System.out.println(input.shortestPath);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Please provide all 3 arguments in format: /path/to/file \"employee 1\" \"employee 2\"");
+		}
 		
-		InputHandler input = new InputHandler(filename, emp1, emp2);
-		System.out.println(input.shortestPath);
 		
 	}
 	
