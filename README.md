@@ -8,7 +8,7 @@ Compiling:
 Running: 
 	From top directory (BT folder) use:
 		cd bin
-		java charttraversal.InputHandler {/path/to/filename.txt} {“employee 1”} {“employee 2”}
+		java charttraversal.InputHandler /path/to/filename.txt “employee 1” “employee 2”
 
 
 ————————————————————  INFO —————————— —————————— 
@@ -16,7 +16,7 @@ Running:
 The main class for the program is InputHandler. This has the main function that takes input arguments.
 
 The arguments required are:
-1 - an input file (inc. path to it) containing a company structure in the format of example.txt 
+1 - an input file (inc. path to it from the bin folder) containing a company structure in the format of example.txt 
 2 - The name of a first employee
 3 - The name of a second employee.
 

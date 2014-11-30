@@ -1,0 +1,23 @@
+  | Employee ID | Name            | Manager ID |
+  | 17          | Catwoman        | 6          |
+  | 1           | Dangermouse     |            |
+
+ | 25          | Alex        | 12          |
+  | 3           | Invisible Woman | 1          |
+
+  | 12          | Hit Girl        | 3          |
+  | 15          | Super Ted       | 3          |
+
+  | 16          | Batman          | 6          |
+
+  | 20         | Frank       | 15          |
+ | 24          | Dave        | 16          |
+
+ | 27          | Moris        | 17         |
+ | 32          | Corriander        | 24          |
+ | 31          | Ladybug        | 2          |
+
+ | 36          | Forune        | 31          |
+| 48 | Owl | 27 |
+| 50 | Toronto | 48 | 
+  | 6           | Black Widow     | 2          |
