@@ -122,15 +122,49 @@ public class PathCalculator {
 		 * check[1] indicates the id of employee 1 (if found)
 		 * check[2] indicates the id of employee 2 (if found)
 		 */
-		
+		Boolean sameNameFoundOnce = false;
+		Boolean sameNameFoundTwice = false;
 		for (Map.Entry<Integer, Employee> entry : company.entrySet()) {
-			if (entry.getValue().getName().equalsIgnoreCase(emp1)) {
-				check[1] = Integer.toString(entry.getValue().getId());
-			}
-			
-			if (entry.getValue().getName().equalsIgnoreCase(emp2)) {
-				check[2] = Integer.toString(entry.getValue().getId());
-			}
+			/*
+			 * We use this outer if to check if employee names are the same.
+			 * If they are the same, then we want to be sure that there aren't
+			 * two people with the same name (and different IDs) in the company.
+			 */
+			if (emp1.equalsIgnoreCase(emp2)) {
+				/*
+				 * Hence, we find the employee once.
+				 * If we find the employee again, and we know they've already been found once,
+				 * and we can see that the IDs are different, we add them as a different person.
+				 */
+				if ((entry.getValue().getName().equalsIgnoreCase(emp2)) && (check[1] != null) && (entry.getValue().getId() != Integer.parseInt(check[1]))) {
+					check[2] = Integer.toString(entry.getValue().getId());
+					sameNameFoundTwice = true;
+				} else if ((entry.getValue().getName().equalsIgnoreCase(emp1)) && (check[1] == null)){
+					check[1] = Integer.toString(entry.getValue().getId());
+					sameNameFoundOnce = true;
+				}
+			} else {
+				/*
+				 * If the employees names are not the same, carry on looking for each employee
+				 * as you would usually.
+				 */
+				if (entry.getValue().getName().equalsIgnoreCase(emp1)) {
+					check[1] = Integer.toString(entry.getValue().getId());
+				} 
+				
+				if (entry.getValue().getName().equalsIgnoreCase(emp2)) {
+					check[2] = Integer.toString(entry.getValue().getId());
+				}
+			}			
+		}
+		
+		/*
+		 * If there's actually only one person with this name in the company,
+		 * but the user has input them twice, just make it so they find the link
+		 * between that person and themselves.
+		 */
+		if (sameNameFoundOnce && !sameNameFoundTwice) {
+			check[2] = check[1];
 		}
 		
 		

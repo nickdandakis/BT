@@ -74,7 +74,7 @@ public class FileReader {
 			reader.close();
 			
 		}  catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("Sorry, that file could not be found. Please check you have spelt the name correctly, and given the path relative to the current directory.");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
